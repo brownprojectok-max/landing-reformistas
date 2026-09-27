@@ -195,13 +195,13 @@ if (app) {
     toast.textContent = text;
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1900);
   };
 
   const playTimeline = () => {
     if (reduceMotion) { timelineItems.forEach((li) => li.classList.add('in')); return; }
     timelineItems.forEach((li) => li.classList.remove('in'));
-    timelineItems.forEach((li, k) => after(150 + k * 260, () => li.classList.add('in')));
+    timelineItems.forEach((li, k) => after(100 + k * 170, () => li.classList.add('in')));
   };
 
   const playResumen = () => {
@@ -212,7 +212,7 @@ if (app) {
       resumen.classList.remove('play-out');
       const t0 = performance.now();
       const step = (t) => {
-        const p = Math.min(1, (t - t0) / 900);
+        const p = Math.min(1, (t - t0) / 700);
         const e = 1 - Math.pow(1 - p, 3);
         counters.forEach((c) => { c.textContent = String(Math.round(Number(c.dataset.count) * e)); });
         if (p < 1) requestAnimationFrame(step);
@@ -242,21 +242,21 @@ if (app) {
   };
 
   const story = [
-    { wait: 1500, fn: () => { reset(); show('solicitudes'); } },
-    { wait: 3000, fn: () => {
+    { wait: 900, fn: () => { reset(); show('solicitudes'); } },
+    { wait: 2000, fn: () => {
       arrival.classList.remove('is-hidden');
       badge.textContent = '3';
       say('Nueva solicitud · Javier P. · cocina · 5 fotos');
     } },
-    { wait: 1800, fn: () => show('calendario') },
-    { wait: 3400, fn: () => {
+    { wait: 1200, fn: () => show('calendario') },
+    { wait: 2300, fn: () => {
       calNew.classList.remove('pend');
       arrivalSt.textContent = 'Confirmada';
       arrivalSt.className = 'st ok';
       say('Visita confirmada · a Javier le llega el aviso por WhatsApp');
     } },
-    { wait: 5200, fn: () => show('cliente') },
-    { wait: 5200, fn: () => show('resumen') },
+    { wait: 3600, fn: () => show('cliente') },
+    { wait: 3600, fn: () => show('resumen') },
   ];
 
   let idx = 0;
