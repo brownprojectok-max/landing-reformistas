@@ -57,6 +57,21 @@ const stepsBox = document.getElementById('steps');
 const railFill = document.getElementById('railFill');
 let active = 0;
 
+// En teléfonos no hay móvil fijo: cada paso lleva una copia de su pantalla (la muestra el CSS a ≤600 px).
+steps.forEach((step, k) => {
+  const screen = screens[k];
+  if (!screen) return;
+  const mini = document.createElement('div');
+  mini.className = 'phone step-phone';
+  mini.setAttribute('aria-hidden', 'true');
+  mini.innerHTML = '<div class="phone-notch"></div>';
+  const copy = screen.cloneNode(true);
+  copy.classList.add('is-active');
+  copy.removeAttribute('data-screen');
+  mini.appendChild(copy);
+  step.querySelector(':scope > div').appendChild(mini);
+});
+
 const setActive = (n) => {
   if (n === active) return;
   active = n;
@@ -65,8 +80,8 @@ const setActive = (n) => {
 };
 
 const updateStory = () => {
-  // El paso activo es el que cruza la línea de lectura (55% de la pantalla en el móvil, 50% en el ordenador).
-  const line = window.innerHeight * (window.innerWidth <= 900 ? 0.62 : 0.5);
+  // El paso activo es el que cruza la mitad de la pantalla.
+  const line = window.innerHeight * 0.5;
   let current = 0;
   steps.forEach((s, k) => { if (s.getBoundingClientRect().top < line) current = k; });
   setActive(current);
