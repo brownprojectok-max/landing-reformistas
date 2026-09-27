@@ -1,4 +1,8 @@
 // Atiende (nombre provisional) · landing de presentación
+//
+// Rendimiento (iPhone): nada trabaja si no está en pantalla. Todo lo que depende de la
+// posición usa IntersectionObserver; el único cálculo por fotograma es la barra de
+// progreso de «Cómo funciona», y solo mientras esa sección está a la vista.
 
 // Enlace del calendario donde el reformista reserva la llamada de 15 minutos (Calendly del Señor, 27-09).
 const BOOKING_URL = 'https://calendly.com/agusbrowncontacto/reunion-estrategica';
@@ -6,11 +10,21 @@ const BOOKING_URL = 'https://calendly.com/agusbrowncontacto/reunion-estrategica'
 document.documentElement.classList.add('js');
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasIO = 'IntersectionObserver' in window;
 const isPhone = () => window.innerWidth <= 600;
+
+// Llama a onChange(visible) cuando el elemento entra o sale de la pantalla.
+const watch = (el, onChange, rootMargin = '0px') => {
+  if (!el) return;
+  if (!hasIO) { onChange(true); return; }
+  new IntersectionObserver((entries) => {
+    for (const e of entries) onChange(e.isIntersecting);
+  }, { rootMargin }).observe(el);
+};
 
 // ---------- aparición al bajar ----------
 const revealEls = document.querySelectorAll('[data-reveal]');
-if ('IntersectionObserver' in window && !reduceMotion) {
+if (hasIO && !reduceMotion) {
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -23,11 +37,6 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 } else {
   revealEls.forEach((el) => el.classList.add('in'));
 }
-
-// ---------- barra de navegación ----------
-const nav = document.getElementById('nav');
-const onScrollNav = () => nav.classList.toggle('scrolled', window.scrollY > 12);
-onScrollNav();
 
 // ---------- pantallas del recorrido ----------
 const steps = [...document.querySelectorAll('.step')];
@@ -53,7 +62,7 @@ steps.forEach((step, k) => {
   step.querySelector(':scope > div').appendChild(mini);
 });
 
-// ---------- portada: el formulario va pasando solo ----------
+// ---------- portada: el formulario va pasando solo, solo mientras se ve ----------
 const heroPhone = document.getElementById('heroPhone');
 const sent = heroPhone.querySelector('[data-hero="sent"]');
 const heroScreens = [1, 2, 3, 4].map((k) => {
@@ -63,18 +72,27 @@ const heroScreens = [1, 2, 3, 4].map((k) => {
   return copy;
 });
 heroScreens.push(sent);
+
 if (!reduceMotion) {
   let h = heroScreens.length - 1;
+  let timer = null;
   const show = (n) => heroScreens.forEach((s, k) => s.classList.toggle('is-active', k === n));
   const next = () => {
     h = (h + 1) % heroScreens.length;
     show(h);
-    setTimeout(next, h === heroScreens.length - 1 ? 3200 : 2100);
+    timer = setTimeout(next, h === heroScreens.length - 1 ? 3200 : 2100);
   };
-  setTimeout(next, 1800);
+  watch(heroPhone, (visible) => {
+    clearTimeout(timer);
+    timer = visible ? setTimeout(next, 1500) : null;
+  });
 }
 
-// ---------- el paso activo cambia la pantalla del móvil fijo ----------
+// ---------- la onda de la llamada solo se mueve mientras se ve ----------
+const callPhone = document.getElementById('callPhone');
+watch(callPhone, (visible) => callPhone.classList.toggle('is-live', visible && !reduceMotion));
+
+// ---------- cómo funciona: el paso que cruza la mitad de la pantalla manda ----------
 let active = 0;
 const setActive = (n) => {
   if (n === active) return;
@@ -83,17 +101,48 @@ const setActive = (n) => {
   screens.forEach((s, k) => s.classList.toggle('is-active', k === n));
 };
 
-const updateStory = () => {
-  // El paso activo es el que cruza la mitad de la pantalla.
-  const line = window.innerHeight * 0.5;
-  let current = 0;
-  steps.forEach((s, k) => { if (s.getBoundingClientRect().top < line) current = k; });
-  setActive(current);
+if (hasIO) {
+  // Una línea en la mitad de la pantalla: el paso que la toca es el activo.
+  const stepIO = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) setActive(steps.indexOf(e.target));
+    }
+  }, { rootMargin: '-49% 0px -50% 0px' });
+  steps.forEach((s) => stepIO.observe(s));
+}
 
+// Barra de progreso: se calcula en el scroll solo con la sección a la vista.
+let storyVisible = false;
+const updateRail = () => {
   const r = stepsBox.getBoundingClientRect();
-  const p = Math.min(1, Math.max(0, (line - r.top) / r.height));
+  const p = Math.min(1, Math.max(0, (window.innerHeight * 0.5 - r.top) / r.height));
   railFill.style.transform = `scaleY(${p.toFixed(3)})`;
 };
+watch(stepsBox, (visible) => { storyVisible = visible; if (visible) updateRail(); });
+
+// ---------- barra de navegación y botón fijo del móvil ----------
+const nav = document.getElementById('nav');
+const mobileCta = document.getElementById('mobileCta');
+let heroVisible = true;
+let finalVisible = false;
+const updateMobileCta = () => mobileCta.classList.toggle('show', !heroVisible && !finalVisible);
+watch(document.querySelector('.hero'), (v) => { heroVisible = v; updateMobileCta(); }, '-80px 0px 0px 0px');
+watch(document.getElementById('probar'), (v) => { finalVisible = v; updateMobileCta(); });
+
+let ticking = false;
+let navScrolled = null;
+const onScroll = () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const scrolled = window.scrollY > 12;
+    if (scrolled !== navScrolled) { navScrolled = scrolled; nav.classList.toggle('scrolled', scrolled); }
+    if (storyVisible) updateRail();
+    ticking = false;
+  });
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
 // ---------- se puede tocar: opciones y «Siguiente» ----------
 document.addEventListener('click', (ev) => {
@@ -116,32 +165,6 @@ document.addEventListener('click', (ev) => {
     }
   }
 });
-
-// ---------- botón fijo en el móvil ----------
-const mobileCta = document.getElementById('mobileCta');
-const hero = document.querySelector('.hero');
-const finalSec = document.getElementById('probar');
-const updateMobileCta = () => {
-  const pastHero = hero.getBoundingClientRect().bottom < 80;
-  const atForm = finalSec.getBoundingClientRect().top < window.innerHeight;
-  mobileCta.classList.toggle('show', pastHero && !atForm);
-};
-
-let ticking = false;
-const onScroll = () => {
-  if (ticking) return;
-  ticking = true;
-  requestAnimationFrame(() => {
-    onScrollNav();
-    updateStory();
-    updateMobileCta();
-    ticking = false;
-  });
-};
-window.addEventListener('scroll', onScroll, { passive: true });
-window.addEventListener('resize', onScroll);
-updateStory();
-updateMobileCta();
 
 // ---------- reservar la llamada ----------
 const bookBtn = document.getElementById('bookBtn');
