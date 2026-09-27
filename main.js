@@ -172,6 +172,116 @@ if (BOOKING_URL) {
   });
 }
 
+// ---------- el panel por dentro: simulación ----------
+// Se mueve solo mientras se ve; en cuanto el visitante toca algo, manda él.
+const app = document.getElementById('app');
+if (app) {
+  const tabs = [...app.querySelectorAll('.app-tab')];
+  const views = [...app.querySelectorAll('.app-view')];
+  const toast = document.getElementById('appToast');
+  const badge = document.getElementById('appBadge');
+  const arrival = app.querySelector('[data-arrive]');
+  const arrivalSt = app.querySelector('[data-arrive-st]');
+  const calNew = document.getElementById('calNew');
+  const timelineItems = [...app.querySelectorAll('#clTimeline li')];
+  const counters = [...app.querySelectorAll('[data-count]')];
+  const resumen = app.querySelector('[data-view="resumen"]');
+  const later = [];
+  const clearLater = () => { while (later.length) clearTimeout(later.pop()); };
+  const after = (ms, fn) => later.push(setTimeout(fn, ms));
+
+  let toastTimer = null;
+  const say = (text) => {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  };
+
+  const playTimeline = () => {
+    if (reduceMotion) { timelineItems.forEach((li) => li.classList.add('in')); return; }
+    timelineItems.forEach((li) => li.classList.remove('in'));
+    timelineItems.forEach((li, k) => after(150 + k * 260, () => li.classList.add('in')));
+  };
+
+  const playResumen = () => {
+    if (reduceMotion) return;
+    resumen.classList.add('play-out');
+    counters.forEach((c) => { c.textContent = '0'; });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      resumen.classList.remove('play-out');
+      const t0 = performance.now();
+      const step = (t) => {
+        const p = Math.min(1, (t - t0) / 900);
+        const e = 1 - Math.pow(1 - p, 3);
+        counters.forEach((c) => { c.textContent = String(Math.round(Number(c.dataset.count) * e)); });
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }));
+  };
+
+  const show = (name) => {
+    tabs.forEach((t) => {
+      const on = t.dataset.tab === name;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    views.forEach((v) => v.classList.toggle('is-on', v.dataset.view === name));
+    if (name === 'cliente') playTimeline();
+    if (name === 'resumen') playResumen();
+  };
+
+  // Estado de partida de la historia: la solicitud de Javier aún no ha llegado.
+  const reset = () => {
+    arrival.classList.add('is-hidden');
+    arrival.classList.remove('arrive');
+    arrivalSt.textContent = 'Por confirmar';
+    arrivalSt.className = 'st new';
+    badge.textContent = '2';
+    calNew.classList.add('pend');
+  };
+
+  const story = [
+    { wait: 1500, fn: () => { reset(); show('solicitudes'); } },
+    { wait: 3000, fn: () => {
+      arrival.classList.remove('is-hidden');
+      arrival.classList.add('arrive');
+      badge.textContent = '3';
+      say('Nueva solicitud · Javier P. · cocina · 5 fotos');
+    } },
+    { wait: 1800, fn: () => show('calendario') },
+    { wait: 3400, fn: () => {
+      calNew.classList.remove('pend');
+      arrivalSt.textContent = 'Confirmada';
+      arrivalSt.className = 'st ok';
+      say('Visita confirmada · a Javier le llega el aviso por WhatsApp');
+    } },
+    { wait: 5200, fn: () => show('cliente') },
+    { wait: 5200, fn: () => show('resumen') },
+  ];
+
+  let idx = 0;
+  let timer = null;
+  let userControl = false;
+  const run = () => {
+    story[idx].fn();
+    timer = setTimeout(() => { idx = (idx + 1) % story.length; run(); }, story[idx].wait);
+  };
+  const start = () => { if (!userControl && !timer && !reduceMotion) run(); };
+  const stop = () => { clearTimeout(timer); timer = null; };
+  const takeControl = () => { userControl = true; stop(); clearLater(); };
+
+  watch(app, (visible) => (visible ? start() : stop()), '-15% 0px -15% 0px');
+  tabs.forEach((t) => t.addEventListener('click', () => { takeControl(); show(t.dataset.tab); }));
+  app.querySelectorAll('[data-open]').forEach((el) => {
+    const open = () => { takeControl(); show(el.dataset.open); };
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') open(); });
+  });
+  if (reduceMotion) timelineItems.forEach((li) => li.classList.add('in'));
+}
+
 // ---------- portada: el nombre de su empresa en todos los ejemplos ----------
 // Solo cambia el texto en su pantalla; no se envía nada.
 const DEMO = 'Reformas García';

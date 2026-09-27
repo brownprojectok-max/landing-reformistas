@@ -549,31 +549,136 @@
       </div>
     </section>
 
-    <!-- ============ HISTORIAL ============ -->
-    <section class="section wrap" id="historial">
-      <div class="split">
-        <div class="head left" data-reveal>
-          <span class="eyebrow">Historial</span>
-          <h2>Cada cliente, con todo lo que pasó.</h2>
-          <p>La reserva, las fotos, la visita, el presupuesto y cada mensaje quedan en su ficha. Nada se pierde entre el WhatsApp, la libreta y la memoria.</p>
-          <div class="mini-cards">
-            <div><strong>Reservas</strong><span>Con la obra, los metros y las fotos antes de ir.</span></div>
-            <div><strong>Mensajes</strong><span>Por WhatsApp o por SMS, según prefiera el cliente.</span></div>
-            <div><strong>Presupuestos</strong><span>Sabes cuáles siguen vivos y cuáles se enfriaron.</span></div>
+    <!-- ============ EL PANEL, POR DENTRO (simulación) ============ -->
+    <section class="section wrap" id="panel">
+      <div class="head" data-reveal>
+        <span class="eyebrow">Tu panel, por dentro</span>
+        <h2>Así lo ves tú cada día.</h2>
+        <p>Las solicitudes, las visitas, cada cliente y cómo va el mes, en un solo sitio. Se mueve solo; toca las pestañas para verlo a tu ritmo.</p>
+      </div>
+
+      <div class="app" id="app" data-reveal>
+        <aside class="app-side">
+          <div class="app-biz"><span class="avatar">RG</span><div><b>Reformas García</b><small>Tu panel</small></div></div>
+          <div class="app-tabs" role="tablist" aria-label="Secciones del panel">
+            <button type="button" role="tab" class="app-tab is-on" data-tab="solicitudes" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13l2-8h12l2 8M4 13v6h16v-6M4 13h5l1 2h4l1-2h5"/></svg>Solicitudes<span class="app-badge" id="appBadge">3</span></button>
+            <button type="button" role="tab" class="app-tab" data-tab="calendario" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendario</button>
+            <button type="button" role="tab" class="app-tab" data-tab="cliente" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Cliente</button>
+            <button type="button" role="tab" class="app-tab" data-tab="resumen" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M11 20V5M17 20v-6M3 20h18"/></svg>Resumen del mes</button>
           </div>
-        </div>
-        <div class="timeline-card" data-reveal>
-          <div class="tl-head"><div><strong>Laura M.</strong><small>Reforma de baño · Chamberí</small></div><span class="demo-tag">Datos de ejemplo</span></div>
-          <ol class="timeline">
-            <li><time>Lun 5 · 22:14</time><b>Solicitud desde tu ficha de Google</b><small>Reforma de baño · 6 m² · 3 fotos · + mampara y mueble</small></li>
-            <li class="ok"><time>Mar 6 · 08:05</time><b>Visita confirmada por ti</b><small>Jueves 8, 10:00 · aviso por WhatsApp</small></li>
-            <li><time>Mié 7 · 10:00</time><b>Recordatorio enviado</b><small>Confirmada</small></li>
-            <li class="ok"><time>Jue 8 · 10:00</time><b>Visita hecha</b></li>
-            <li><time>Lun 12</time><b>Presupuesto enviado</b><small>7.850 €</small></li>
-            <li><time>Jue 15</time><b>Seguimiento 1</b><small>Sin respuesta</small></li>
-            <li class="hot"><time>Lun 19</time><b>Seguimiento 2 · Ha respondido</b><small>«¿Podríamos empezar en noviembre?»</small></li>
-            <li class="ok"><time>Vie 4 dic</time><b>Obra terminada · Reseña pedida</b><small>5 estrellas en Google</small></li>
-          </ol>
+          <span class="demo-tag app-demo">Simulación · datos de ejemplo</span>
+        </aside>
+
+        <div class="app-main">
+          <div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+          <!-- Solicitudes -->
+          <div class="app-view is-on" data-view="solicitudes" role="tabpanel">
+            <div class="av-head"><h3>Solicitudes</h3><span>Esta semana</span></div>
+            <ul class="rq-list">
+              <li class="rq is-new" data-arrive>
+                <span class="avatar alt">JP</span>
+                <div class="rq-main"><b>Javier P.</b><small>Cocina · 12 m² · 5 fotos · + encimera</small></div>
+                <div class="rq-when"><small>Pide visita</small>Vie 9 · 17:00</div>
+                <span class="st new" data-arrive-st>Por confirmar</span>
+              </li>
+              <li class="rq" data-open="cliente" tabindex="0">
+                <span class="avatar alt">LM</span>
+                <div class="rq-main"><b>Laura M.</b><small>Baño · 6 m² · 3 fotos · + mampara y mueble</small></div>
+                <div class="rq-when"><small>Visita</small>Jue 8 · 10:00</div>
+                <span class="st ok">Confirmada</span>
+              </li>
+              <li class="rq">
+                <span class="avatar alt">CR</span>
+                <div class="rq-main"><b>Carlos R.</b><small>Llamada atendida · baño · sin prisa</small></div>
+                <div class="rq-when"><small>Llamar</small>Hoy</div>
+                <span class="st hot">Devolver llamada</span>
+              </li>
+              <li class="rq">
+                <span class="avatar alt">MS</span>
+                <div class="rq-main"><b>Marta S.</b><small>Reforma integral · presupuesto enviado</small></div>
+                <div class="rq-when"><small>Enviado</small>Lun 5</div>
+                <span class="st warn">Seguimiento 2</span>
+              </li>
+              <li class="rq">
+                <span class="avatar alt">AV</span>
+                <div class="rq-main"><b>Andrés V.</b><small>Cocina · visita hecha el lunes</small></div>
+                <div class="rq-when"><small>Presupuesto</small>Pendiente</div>
+                <span class="st">Presupuestar</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Calendario -->
+          <div class="app-view" data-view="calendario" role="tabpanel">
+            <div class="av-head"><h3>Calendario</h3><span>Del 5 al 9 de octubre</span></div>
+            <div class="cal-week">
+              <div class="cw-day"><b>Lun 5</b><div class="cw-ev work"><time>8:00</time>Obra en Retiro</div><div class="cw-ev done"><time>12:00</time>Andrés V. · cocina</div></div>
+              <div class="cw-day"><b>Mar 6</b><div class="cw-ev work"><time>8:00</time>Obra en Retiro</div><span class="cw-free">Tarde libre</span></div>
+              <div class="cw-day"><b>Mié 7</b><div class="cw-ev ok"><time>9:00</time>Pedro L. · baño</div><div class="cw-ev work"><time>11:00</time>Obra en Retiro</div></div>
+              <div class="cw-day"><b>Jue 8</b><div class="cw-ev ok"><time>10:00</time>Laura M. · baño</div><div class="cw-ev work"><time>12:00</time>Obra en Retiro</div></div>
+              <div class="cw-day"><b>Vie 9</b><div class="cw-ev work"><time>8:00</time>Obra en Retiro</div><div class="cw-ev ok" id="calNew"><time>17:00</time>Javier P. · cocina<span class="cw-tag">Por confirmar</span></div></div>
+            </div>
+            <p class="av-note">Tus horas de obra quedan bloqueadas: tus clientes solo ven los huecos libres al reservar.</p>
+          </div>
+
+          <!-- Ficha del cliente -->
+          <div class="app-view" data-view="cliente" role="tabpanel">
+            <div class="cl-head">
+              <span class="avatar alt">LM</span>
+              <div><h3>Laura M.</h3><small>Reforma de baño · Chamberí</small></div>
+              <div class="cl-actions"><span>Llamar</span><span class="wa">WhatsApp</span></div>
+            </div>
+            <div class="cl-grid">
+              <div class="cl-info">
+                <div><small>Obra</small>Reforma de baño · 6 m²</div>
+                <div><small>Extras</small>Mampara y mueble de lavabo</div>
+                <div><small>Visita</small>Jueves 8 · 10:00</div>
+                <div><small>Presupuesto</small>7.850 € · <span class="st hot">Ha respondido</span></div>
+                <div class="cl-photos"><span class="ph"><svg><use href="#foto-1"/></svg></span><span class="ph"><svg><use href="#foto-2"/></svg></span><span class="ph"><svg><use href="#foto-3"/></svg></span></div>
+              </div>
+              <ol class="timeline" id="clTimeline">
+                <li><time>Lun 5 · 22:14</time><b>Reserva desde tu ficha de Google</b><small>3 fotos · + mampara y mueble</small></li>
+                <li class="ok"><time>Mar 6 · 08:05</time><b>Visita confirmada por ti</b><small>Aviso por WhatsApp</small></li>
+                <li class="opt-m"><time>Mié 7 · 10:00</time><b>Recordatorio enviado</b><small>Confirmada</small></li>
+                <li class="ok"><time>Jue 8 · 10:00</time><b>Visita hecha</b></li>
+                <li><time>Lun 12</time><b>Presupuesto enviado</b><small>7.850 €</small></li>
+                <li class="opt-m"><time>Jue 15</time><b>Seguimiento 1</b><small>Sin respuesta</small></li>
+                <li class="hot"><time>Lun 19</time><b>Seguimiento 2 · Ha respondido</b><small>«¿Podríamos empezar en noviembre?»</small></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Resumen del mes -->
+          <div class="app-view" data-view="resumen" role="tabpanel">
+            <div class="av-head"><h3>Resumen del mes</h3><span>Octubre</span></div>
+            <div class="kpis">
+              <div class="kpi"><small>Solicitudes</small><b data-count="34">34</b></div>
+              <div class="kpi"><small>Visitas hechas</small><b data-count="21">21</b></div>
+              <div class="kpi"><small>Presupuestos enviados</small><b data-count="15">15</b></div>
+              <div class="kpi"><small>Reseñas nuevas</small><b data-count="5">5</b></div>
+            </div>
+            <div class="rs-grid">
+              <div class="rs-card">
+                <small>Solicitudes por semana</small>
+                <div class="bars"><i style="--h:0.55"><em>6</em></i><i style="--h:0.82"><em>9</em></i><i style="--h:1"><em>11</em></i><i style="--h:0.73"><em>8</em></i></div>
+                <div class="bars-x"><span>Sem 1</span><span>Sem 2</span><span>Sem 3</span><span>Sem 4</span></div>
+              </div>
+              <div class="rs-card">
+                <small>De dónde llegan</small>
+                <ul class="src">
+                  <li><span>Ficha de Google</span><b>18</b><i style="--w:0.53"></i></li>
+                  <li><span>Tu web</span><b>9</b><i style="--w:0.27"></i></li>
+                  <li><span>Llamadas al asistente</span><b>7</b><i style="--w:0.2"></i></li>
+                </ul>
+              </div>
+              <div class="rs-card wide">
+                <small>Presupuestos enviados este mes</small>
+                <div class="stack" aria-hidden="true"><i class="s-ok" style="--f:6"></i><i class="s-warn" style="--f:5"></i><i class="s-off" style="--f:4"></i></div>
+                <ul class="stack-legend"><li><i class="s-ok"></i>Aceptados <b>6</b></li><li><i class="s-warn"></i>En seguimiento <b>5</b></li><li><i class="s-off"></i>Sin respuesta <b>4</b></li></ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
