@@ -1,8 +1,7 @@
 // Atiende (nombre provisional) · landing de presentación
 
-// Enlace del calendario donde el reformista reserva la llamada de 15 minutos (Cal.com, Google Calendar…).
-// PENDIENTE: el Señor tiene que crear el calendario y pasar el enlace.
-const BOOKING_URL = '';
+// Enlace del calendario donde el reformista reserva la llamada de 15 minutos (Calendly del Señor, 27-09).
+const BOOKING_URL = 'https://calendly.com/agusbrowncontacto/reunion-estrategica';
 
 document.documentElement.classList.add('js');
 
