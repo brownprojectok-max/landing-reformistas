@@ -806,6 +806,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 14px; }
 .price b { font-family: var(--font-display); font-size: 2.6rem; letter-spacing: -0.03em; line-height: 1; }
 .price span { color: var(--muted); font-size: 15px; }
+.fprice { margin: -6px 0 16px; font-size: 14.5px; font-weight: 600; color: var(--accent-600); }
+.fprice b { font-size: 1.05rem; }
+.founder-note {
+  display: flex; align-items: flex-start; gap: 10px; max-width: 760px; margin: 0 auto 34px; padding: 12px 16px;
+  border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--accent-border); color: var(--ink-2); font-size: 15px;
+}
+.founder-note .dot { flex: none; margin-top: 7px; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
 .plan .ticks { margin-bottom: 22px; flex: 1; }
 .plan.hl { border-color: var(--accent-border); box-shadow: 0 30px 70px -40px rgba(194, 65, 12, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
 .badge { position: absolute; top: -12px; left: 24px; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 8px; background: var(--accent); color: #fff; }
