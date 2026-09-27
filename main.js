@@ -92,7 +92,7 @@ const updateStory = () => {
 
   const r = stepsBox.getBoundingClientRect();
   const p = Math.min(1, Math.max(0, (line - r.top) / r.height));
-  railFill.style.height = (p * 100).toFixed(1) + '%';
+  railFill.style.transform = `scaleY(${p.toFixed(3)})`;
 };
 
 // ---------- se puede tocar: opciones y «Siguiente» ----------
