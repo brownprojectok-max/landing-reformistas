@@ -322,3 +322,18 @@ tryForm.addEventListener('submit', (ev) => {
     heroPhone.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
   }
 });
+
+// Enlace de la prospección: ?para=Nombre abre la página con su empresa ya puesta en todos los ejemplos.
+const para = (new URLSearchParams(location.search).get('para') || '').trim().replace(/\s+/g, ' ').slice(0, 40);
+if (para) {
+  tryName.value = para;
+  setBusiness(para);
+  const pill = document.querySelector('.hero .pill');
+  if (pill) {
+    const b = document.createElement('b');
+    b.textContent = para;
+    const texto = document.createElement('span');
+    texto.append('Preparado para ', b);
+    pill.lastChild.replaceWith(texto);
+  }
+}
