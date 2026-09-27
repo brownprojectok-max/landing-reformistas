@@ -120,14 +120,8 @@ const updateRail = () => {
 };
 watch(stepsBox, (visible) => { storyVisible = visible; if (visible) updateRail(); });
 
-// ---------- barra de navegación y botón fijo del móvil ----------
+// ---------- barra de navegación ----------
 const nav = document.getElementById('nav');
-const mobileCta = document.getElementById('mobileCta');
-let heroVisible = true;
-let finalVisible = false;
-const updateMobileCta = () => mobileCta.classList.toggle('show', !heroVisible && !finalVisible);
-watch(document.querySelector('.hero'), (v) => { heroVisible = v; updateMobileCta(); }, '-80px 0px 0px 0px');
-watch(document.getElementById('probar'), (v) => { finalVisible = v; updateMobileCta(); });
 
 let ticking = false;
 let navScrolled = null;
