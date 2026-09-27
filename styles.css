@@ -354,7 +354,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .head h2 { font-size: clamp(1.95rem, 4.4vw, 3.05rem); line-height: 1.06; font-weight: 760; margin: 16px 0 16px; }
 .head p { font-size: clamp(1.02rem, 1.4vw, 1.14rem); color: var(--muted); }
 
-.card, .plan, .window, .profile, .timeline-card, .result, .form, .table-wrap, .faq, .mini-cards > div, .final-copy .after li {
+.card, .plan, .window, .profile, .timeline-card, .result, .book-card, .table-wrap, .faq, .mini-cards > div, .final-copy .after li {
   background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); box-shadow: var(--shadow);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 }
@@ -569,15 +569,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .after li::before { content: counter(a); position: absolute; left: 16px; top: 14px; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-600); font-weight: 750; font-size: 14px; }
 .after b { display: block; }
 .after span { color: var(--muted); font-size: 15px; }
-.form { padding: 26px; display: grid; gap: 16px; }
-.form label { display: grid; gap: 7px; font-weight: 600; font-size: 15px; color: var(--ink-2); }
-.form input, .form select {
-  font: inherit; font-size: 16px; color: var(--ink); width: 100%; min-height: 48px; padding: 0 14px;
-  border-radius: 12px; border: 1px solid var(--line-2); background: rgba(255, 255, 255, 0.9);
-}
-.form input:focus, .form select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-.form input[aria-invalid="true"] { border-color: var(--hot); box-shadow: 0 0 0 4px var(--hot-soft); }
-.btn.wa { margin-top: 6px; }
+.book-card { padding: 26px; display: grid; gap: 16px; }
+.bc-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.bc-head .brand-mark { width: 44px; height: 44px; border-radius: 13px; flex: none; }
+.bc-head .brand-mark svg { width: 24px; height: 24px; }
+.bc-head strong { display: block; font-size: 1.15rem; }
+.bc-head small { color: var(--muted); font-size: 14.5px; }
+.book-card .ticks { margin: 0; }
 .form-msg { font-size: 14.5px; color: var(--hot); min-height: 0; }
 .form-msg:empty { display: none; }
 @media (max-width: 900px) { .final { grid-template-columns: 1fr; gap: 28px; } }

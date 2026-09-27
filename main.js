@@ -1,9 +1,8 @@
 // Atiende (nombre provisional) · landing de presentación
 
-// Número de WhatsApp que recibe las solicitudes: solo dígitos, con prefijo de país (34...).
-// PENDIENTE: el Señor tiene que pasarlo.
-const WHATSAPP = '';
-const MARCA = 'Atiende';
+// Enlace del calendario donde el reformista reserva la llamada de 15 minutos (Cal.com, Google Calendar…).
+// PENDIENTE: el Señor tiene que crear el calendario y pasar el enlace.
+const BOOKING_URL = '';
 
 document.documentElement.classList.add('js');
 
@@ -145,42 +144,14 @@ window.addEventListener('resize', onScroll);
 updateStory();
 updateMobileCta();
 
-// ---------- formulario de contacto → WhatsApp ----------
-const form = document.getElementById('form');
-const msg = document.getElementById('formMsg');
-
-form.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-  msg.textContent = '';
-  const data = new FormData(form);
-  const nombre = String(data.get('nombre') || '').trim();
-  const empresa = String(data.get('empresa') || '').trim();
-
-  let firstBad = null;
-  for (const [name, value] of [['nombre', nombre], ['empresa', empresa]]) {
-    const input = form.elements[name];
-    const bad = value.length < 2;
-    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
-    if (bad && !firstBad) firstBad = input;
-  }
-  if (firstBad) {
-    msg.textContent = 'Falta tu nombre o el de tu empresa.';
-    firstBad.focus();
-    return;
-  }
-
-  if (!WHATSAPP) {
-    msg.textContent = 'Todavía no está configurado el número de WhatsApp.';
-    return;
-  }
-
-  const texto = [
-    `Hola, quiero probar ${MARCA}.`,
-    `Nombre: ${nombre}`,
-    `Empresa: ${empresa}`,
-    `Web o ficha de Google: ${data.get('web')}`,
-    `Llamadas que no puedo coger a la semana: ${data.get('llamadas')}`,
-  ].join('\n');
-
-  window.location.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
-});
+// ---------- reservar la llamada ----------
+const bookBtn = document.getElementById('bookBtn');
+const bookMsg = document.getElementById('bookMsg');
+if (BOOKING_URL) {
+  bookBtn.href = BOOKING_URL;
+} else {
+  bookBtn.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    bookMsg.textContent = 'Todavía no está configurado el enlace del calendario.';
+  });
+}
