@@ -4,14 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- «Atiende» es un nombre PROVISIONAL (decisión del Señor, 27-09). Para cambiarlo, buscar «Atiende» en index.html y main.js. -->
-  <title>Atiende · Que no se te escape ni un cliente, sin parar la obra</title>
-  <meta name="description" content="Para empresas de reformas: contesta las llamadas que no puedes coger, deja la visita reservada y persigue el presupuesto por ti. Desde 199 €/mes + IVA.">
+  <title>Atiende · Que tus clientes reserven la visita sin llamarte</title>
+  <meta name="description" content="Para empresas de reformas: un formulario de reserva con tu marca en tu ficha de Google y tu web. El cliente cuenta la obra, manda fotos y elige día. Desde 199 €/mes + IVA.">
   <meta name="theme-color" content="#eef2f6">
   <!-- Sin indexar hasta tener aviso legal y privacidad (tras el alta del 30-09). Quitar al abrirla al público. -->
   <meta name="robots" content="noindex">
-
-  <meta property="og:title" content="Atiende · Que no se te escape ni un cliente, sin parar la obra">
-  <meta property="og:description" content="Contesta las llamadas que no puedes coger, deja la visita reservada y persigue el presupuesto por ti.">
+  <meta property="og:title" content="Atiende · Que tus clientes reserven la visita sin llamarte">
+  <meta property="og:description" content="Un formulario de reserva con tu marca: el cliente cuenta la obra, manda fotos y elige día. Tú solo confirmas.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -26,9 +25,7 @@
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a class="brand" href="#" aria-label="Atiende, inicio">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-        </span>
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2zM5 9v10h14V9zm5.6 8.2-3-3 1.4-1.4 1.6 1.6 4.4-4.4 1.4 1.4z"/></svg></span>
         Atiende
       </a>
       <nav class="nav-links" aria-label="Secciones">
@@ -48,38 +45,38 @@
       <div class="hero-copy">
         <span class="pill" data-reveal><span class="dot"></span>Para empresas de reformas</span>
         <h1 data-reveal>Que no se te escape ni un cliente. <span class="u">Sin parar la obra.</span></h1>
-        <p class="lede" data-reveal>Cuando estás en obra y no puedes coger el móvil, Atiende contesta por ti, le manda al cliente un enlace para reservar la visita y después persigue el presupuesto. Tú solo apareces a la hora acordada.</p>
+        <p class="lede" data-reveal>Tus clientes reservan la visita desde tu ficha de Google o tu web, en un minuto, con fotos de la obra y sin tener que llamarte. Si llaman cuando estás en obra, les llega el mismo enlace. Y después, Atiende persigue el presupuesto por ti.</p>
         <div class="cta-row" data-reveal>
           <a class="btn" href="#probar">Quiero probarlo</a>
-          <a class="btn btn-ghost" href="#como-funciona">Ver cómo funciona <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" href="#como-funciona">Ver el formulario <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="fine" data-reveal>30 días gratis · Sin permanencia · Sigues con tu número de siempre</p>
+        <p class="fine" data-reveal>30 días gratis · Sin permanencia · Lo montamos nosotros</p>
         <ul class="chips" data-reveal>
-          <li>Contesta 24 horas</li>
-          <li>Por WhatsApp o SMS</li>
+          <li>Reserva desde Google y tu web</li>
+          <li>Con fotos de la obra</li>
           <li>Todo en tu panel</li>
         </ul>
       </div>
 
       <div class="hero-visual" data-reveal>
-        <div class="phone" id="heroPhone">
+        <div class="phone" id="heroPhone" inert>
           <div class="phone-notch" aria-hidden="true"></div>
-          <div class="screen chat">
-            <div class="chat-head">
-              <span class="avatar">RG</span>
-              <div><strong>Reformas García</strong><small>Asistente</small></div>
-              <span class="demo-tag">Ejemplo</span>
-            </div>
-            <div class="chat-body" id="heroChat">
-              <div class="sys" data-seq="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Llamada atendida · 1:48</div>
-              <div class="bubble out" data-seq="2">Hola Laura, soy el asistente de Reformas García. Aquí puedes elegir día para la visita:</div>
-              <div class="linkcard" data-seq="3"><span class="lc-ico" aria-hidden="true">▦</span><div><strong>Reservar visita</strong><small>Reformas García · Madrid</small></div></div>
-              <div class="bubble in" data-seq="4">Genial, el jueves a las 10 me va bien</div>
-              <div class="okcard" data-seq="5"><span class="check" aria-hidden="true">✓</span><div><strong>Visita reservada</strong><small>Jueves 8 · 10:00 · Reforma de baño</small></div></div>
+          <!-- Pantalla final del ciclo; el resto se copia de «Cómo funciona» con main.js -->
+          <div class="screen sent is-active" data-hero="sent">
+            <div class="fm-head"><span class="avatar">RG</span><div><strong>Reformas García</strong><small>Reservar visita</small></div></div>
+            <div class="sent-body">
+              <span class="check big" aria-hidden="true">✓</span>
+              <strong>Solicitud enviada</strong>
+              <small>Reformas García te confirmará la visita por WhatsApp.</small>
+              <ul class="summary">
+                <li><span>Obra</span>Reforma de baño · 6 m²</li>
+                <li><span>Visita</span>Jueves 8 · 10:00</li>
+                <li><span>Fotos</span>3 adjuntas</li>
+              </ul>
             </div>
           </div>
         </div>
-        <p class="caption">Datos de ejemplo</p>
+        <p class="caption">Así lo ve tu cliente · Datos de ejemplo</p>
       </div>
     </section>
 
@@ -87,34 +84,39 @@
     <section class="section wrap" id="hoy">
       <div class="head" data-reveal>
         <span class="eyebrow">Lo que pasa hoy</span>
-        <h2>Estás en obra. Suena el móvil. No puedes cogerlo.</h2>
-        <p>Tienes las manos ocupadas, estás con otro cliente o subido a un andamio. El que llama no suele dejar mensaje: llama a la siguiente empresa de la lista. Y el que ya tiene tu presupuesto, si nadie le vuelve a escribir, se enfría.</p>
+        <h2>El cliente te encuentra. Y para pedirte visita, tiene que llamarte.</h2>
+        <p>Si estás en obra, no coges. Si es de noche, no llama. Y cuando por fin vas a verle, vas a ciegas. Por el camino se pierden clientes que ya te habían elegido.</p>
       </div>
-      <div class="cards3">
+      <div class="cards4">
         <article class="card" data-reveal>
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/><path d="M15 3l6 6M21 3l-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
           <h3>La llamada que no coges</h3>
           <p>Te buscó, te encontró y le salió el buzón de voz.</p>
         </article>
         <article class="card" data-reveal>
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          <h3>La visita que se olvida</h3>
-          <p>Quedasteis de palabra por teléfono y nadie lo apuntó.</p>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></span>
+          <h3>El que no quiere llamar</h3>
+          <p>Te encuentra a las once de la noche y quiere pedir visita ya, sin hablar con nadie.</p>
         </article>
         <article class="card" data-reveal>
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M10 13h6M10 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg></span>
+          <h3>La visita a ciegas</h3>
+          <p>Vas a ver la obra sin fotos ni medidas, y a veces no era para ti.</p>
+        </article>
+        <article class="card" data-reveal>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
           <h3>El presupuesto sin respuesta</h3>
           <p>Lo mandaste hace dos semanas y no has tenido tiempo de insistir.</p>
         </article>
       </div>
     </section>
 
-    <!-- ============ CÓMO FUNCIONA (se explica al bajar) ============ -->
+    <!-- ============ CÓMO FUNCIONA: el formulario, la puerta de entrada ============ -->
     <section class="section wrap" id="como-funciona">
       <div class="head" data-reveal>
-        <span class="eyebrow">Cómo funciona</span>
-        <h2>Cuatro pasos. Tú no tocas ninguno.</h2>
-        <p>Activas un desvío en tu móvil: las llamadas que no coges pasan a Atiende. Desde ahí, el sistema hace el resto y te lo deja todo apuntado en tu panel.</p>
+        <span class="eyebrow">La puerta de entrada</span>
+        <h2>Tus clientes reservan la visita sin tener que llamarte.</h2>
+        <p>Un formulario con tu marca, en tu ficha de Google y en tu web. El cliente cuenta qué obra es, manda fotos y elige día. Tú solo confirmas.</p>
       </div>
 
       <div class="story">
@@ -123,62 +125,122 @@
             <div class="phone" id="storyPhone">
               <div class="phone-notch" aria-hidden="true"></div>
 
-              <!-- Paso 1: la llamada -->
-              <div class="screen call is-active" data-screen="0">
-                <div class="call-top">
-                  <small>Asistente de Reformas García</small>
-                  <strong>En llamada · <span class="timer">00:42</span></strong>
+              <!-- 0 · Te encuentra -->
+              <div class="screen gprof is-active" data-screen="0" data-idx="0">
+                <div class="gp-map" aria-hidden="true"><span class="pin"></span></div>
+                <div class="gp-card">
+                  <strong>Reformas García</strong>
+                  <small><span class="stars" aria-hidden="true">★★★★★</span> 4,8 · Empresa de reformas</small>
+                  <small>Madrid · Abierto</small>
+                  <div class="gp-actions"><span>Llamar</span><span>Cómo llegar</span><button type="button" class="main" data-next>Reservar visita</button></div>
                 </div>
-                <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                <div class="transcript">
-                  <p class="t-in"><b>Cliente</b>Hola, quería presupuesto para reformar un baño.</p>
-                  <p class="t-out"><b>Asistente</b>Claro. ¿En qué zona es la obra y para cuándo lo necesitas?</p>
-                  <p class="t-in"><b>Cliente</b>En Chamberí. Para noviembre, más o menos.</p>
-                </div>
-                <div class="tags"><span>Reforma de baño</span><span>Urgencia baja</span></div>
+                <div class="gp-alt"><small>¿Llamó y no cogiste? Le llega:</small><div class="bubble out">Aquí puedes elegir día para la visita 👇 <b>Reservar visita</b></div></div>
               </div>
 
-              <!-- Paso 2: la reserva -->
-              <div class="screen book" data-screen="1">
-                <div class="book-head"><small>Reformas García</small><strong>Elige día para la visita</strong></div>
-                <div class="days">
-                  <span>Mar<b>6</b></span><span>Mié<b>7</b></span><span class="sel">Jue<b>8</b></span><span>Vie<b>9</b></span>
+              <!-- 1 · Elige la obra -->
+              <div class="screen fscreen" data-screen="1" data-idx="1">
+                <div class="fm-head"><span class="avatar">RG</span><div><strong>Reformas García</strong><small>Reservar visita</small></div><span class="fm-x" aria-hidden="true">✕</span></div>
+                <div class="fm-progress"><i style="width:25%"></i></div>
+                <small class="fm-step">Paso 1 de 4</small>
+                <p class="fm-q">¿Qué obra quieres hacer?</p>
+                <div class="fm-list single">
+                  <button type="button" class="opt sel">Reforma de baño</button>
+                  <button type="button" class="opt">Reforma de cocina</button>
+                  <button type="button" class="opt">Reforma integral</button>
+                  <button type="button" class="opt">Otra obra</button>
                 </div>
-                <div class="slots"><span>9:00</span><span class="sel">10:00</span><span>12:00</span><span>17:00</span></div>
-                <div class="field-mock"><small>¿Qué obra es?</small>Reforma de baño completa</div>
-                <div class="field-mock"><small>Fotos (opcional)</small><span class="thumbs"><i></i><i></i><i></i></span></div>
-                <div class="btn-mock">Reservar visita</div>
+                <button type="button" class="fm-next" data-next>Siguiente</button>
               </div>
 
-              <!-- Paso 3: el recordatorio -->
-              <div class="screen chat" data-screen="2">
+              <!-- 2 · Cuenta cómo es y manda fotos -->
+              <div class="screen fscreen" data-screen="2" data-idx="2">
+                <div class="fm-head"><span class="avatar">RG</span><div><strong>Reformas García</strong><small>Reservar visita</small></div><span class="fm-x" aria-hidden="true">✕</span></div>
+                <div class="fm-progress"><i style="width:50%"></i></div>
+                <small class="fm-step">Paso 2 de 4</small>
+                <p class="fm-q">Cuéntanos cómo es</p>
+                <div class="fm-chips multi">
+                  <button type="button" class="opt sel">Bañera por plato de ducha</button>
+                  <button type="button" class="opt sel">Alicatado nuevo</button>
+                  <button type="button" class="opt">Mueble de lavabo</button>
+                  <button type="button" class="opt">Fontanería</button>
+                  <button type="button" class="opt">Electricidad</button>
+                </div>
+                <div class="fm-field"><small>Metros aproximados</small>6 m²</div>
+                <div class="fm-field"><small>Fotos de cómo está ahora</small><span class="thumbs"><i></i><i></i><i></i><b>+</b></span></div>
+                <button type="button" class="fm-next" data-next>Siguiente</button>
+              </div>
+
+              <!-- 3 · Elige día y hora -->
+              <div class="screen fscreen" data-screen="3" data-idx="3">
+                <div class="fm-head"><span class="avatar">RG</span><div><strong>Reformas García</strong><small>Reservar visita</small></div><span class="fm-x" aria-hidden="true">✕</span></div>
+                <div class="fm-progress"><i style="width:75%"></i></div>
+                <small class="fm-step">Paso 3 de 4</small>
+                <p class="fm-q">¿Cuándo te va bien la visita?</p>
+                <div class="fm-days single">
+                  <button type="button" class="opt">Mar<b>6</b></button>
+                  <button type="button" class="opt">Mié<b>7</b></button>
+                  <button type="button" class="opt sel">Jue<b>8</b></button>
+                  <button type="button" class="opt">Vie<b>9</b></button>
+                </div>
+                <div class="fm-slots single">
+                  <button type="button" class="opt">9:00</button>
+                  <button type="button" class="opt sel">10:00</button>
+                  <button type="button" class="opt">12:00</button>
+                  <button type="button" class="opt">17:00</button>
+                </div>
+                <div class="fm-list multi"><button type="button" class="opt flex">Soy flexible, proponedme vosotros</button></div>
+                <button type="button" class="fm-next" data-next>Siguiente</button>
+              </div>
+
+              <!-- 4 · Deja sus datos -->
+              <div class="screen fscreen" data-screen="4" data-idx="4">
+                <div class="fm-head"><span class="avatar">RG</span><div><strong>Reformas García</strong><small>Reservar visita</small></div><span class="fm-x" aria-hidden="true">✕</span></div>
+                <div class="fm-progress"><i style="width:100%"></i></div>
+                <small class="fm-step">Paso 4 de 4</small>
+                <p class="fm-q">Tus datos</p>
+                <div class="fm-field"><small>Nombre</small>Laura M.</div>
+                <div class="fm-field"><small>Teléfono</small>6·· ··· ···</div>
+                <div class="fm-field"><small>Zona de la obra</small>Chamberí, Madrid</div>
+                <small class="fm-label">¿Cómo prefieres que te avisemos?</small>
+                <div class="fm-toggle single"><button type="button" class="opt sel">WhatsApp</button><button type="button" class="opt">SMS</button></div>
+                <button type="button" class="fm-next" data-next>Enviar solicitud</button>
+              </div>
+
+              <!-- 5 · Te llega a ti -->
+              <div class="screen inbox" data-screen="5" data-idx="5">
+                <div class="book-head"><small>Tu panel</small><strong>Nueva solicitud</strong></div>
+                <div class="req">
+                  <div class="req-top"><b>Laura M.</b><span class="st new">Nueva</span></div>
+                  <ul>
+                    <li><span>Obra</span>Reforma de baño · 6 m²</li>
+                    <li><span>Quiere</span>Plato de ducha y alicatado</li>
+                    <li><span>Visita</span>Jueves 8 · 10:00</li>
+                    <li><span>Zona</span>Chamberí</li>
+                  </ul>
+                  <span class="thumbs"><i></i><i></i><i></i></span>
+                </div>
+                <div class="req-actions"><button type="button" class="fm-next" data-next>Confirmar visita</button><span class="ghost">Proponer otra hora</span></div>
+                <small class="req-note">Al confirmar, a Laura le llega el aviso por WhatsApp.</small>
+              </div>
+
+              <!-- 6 · Recuerda y persigue -->
+              <div class="screen chat" data-screen="6" data-idx="6">
                 <div class="chat-head">
                   <span class="avatar">RG</span>
-                  <div><strong>Reformas García</strong><small>Asistente</small></div>
+                  <div><strong>Reformas García</strong><small>Mensajes automáticos</small></div>
                 </div>
-                <div class="chat-body static">
+                <div class="chat-body">
                   <div class="sys">Miércoles 7</div>
-                  <div class="bubble out">Hola Laura, te recordamos la visita de mañana, jueves 8 a las 10:00, para ver tu baño.</div>
-                  <div class="quick"><span>Confirmo</span><span>Cambiar hora</span></div>
-                  <div class="bubble in">Confirmo, gracias</div>
-                  <div class="okcard"><span class="check" aria-hidden="true">✓</span><div><strong>Visita confirmada</strong><small>Te lo apuntamos en el panel</small></div></div>
+                  <div class="bubble out">Hola Laura, te recordamos la visita de mañana, jueves 8 a las 10:00.</div>
+                  <div class="bubble in">Perfecto, gracias</div>
+                  <div class="sys">Jueves 15</div>
+                  <div class="bubble out">Hola Laura, ¿pudiste ver el presupuesto? Si tienes dudas, te llamamos.</div>
+                  <div class="bubble in">¿Podríamos empezar en noviembre?</div>
+                  <div class="notify"><span aria-hidden="true">●</span> Te avisamos para que la llames</div>
                 </div>
               </div>
-
-              <!-- Paso 4: el presupuesto -->
-              <div class="screen quote" data-screen="3">
-                <div class="book-head"><small>Presupuesto · Laura M.</small><strong>Reforma de baño · 7.850 €</strong></div>
-                <ol class="q-steps">
-                  <li class="done"><b>Enviado</b><small>Lunes 12</small></li>
-                  <li class="done"><b>Seguimiento 1</b><small>Jueves 15 · sin respuesta</small></li>
-                  <li class="done"><b>Seguimiento 2</b><small>Lunes 19</small></li>
-                  <li class="hot"><b>Ha respondido</b><small>«¿Podríamos empezar en noviembre?»</small></li>
-                </ol>
-                <div class="notify"><span aria-hidden="true">●</span> Te avisamos para que la llames</div>
-              </div>
-
             </div>
-            <p class="caption">Datos de ejemplo</p>
+            <p class="caption">Pruébalo: puedes tocarlo · Datos de ejemplo</p>
           </div>
         </div>
 
@@ -187,33 +249,57 @@
           <li class="step is-active" data-step="0">
             <span class="num">01</span>
             <div>
-              <span class="step-tag">La llamada</span>
-              <h3>Contesta</h3>
-              <p>Si no coges o estás comunicando, contesta el asistente con el nombre de tu empresa. Pregunta qué obra es, dónde y para cuándo, y si corre prisa.</p>
+              <span class="step-tag">La entrada</span>
+              <h3>Te encuentra</h3>
+              <p>En tu ficha de Google o en tu web pulsa «Reservar visita». Y si te llamó y no pudiste coger, le llega el mismo enlace.</p>
             </div>
           </li>
           <li class="step" data-step="1">
             <span class="num">02</span>
             <div>
-              <span class="step-tag">La visita</span>
-              <h3>Reserva</h3>
-              <p>Al colgar, le manda al cliente un enlace por WhatsApp o por SMS, el que prefiera, para elegir día y hora dentro de tu horario. Puede adjuntar fotos de la obra.</p>
+              <span class="step-tag">El formulario · 1</span>
+              <h3>Elige la obra</h3>
+              <p>Tus servicios, con tu nombre y tu logo. Sin registrarse y sin descargar nada.</p>
             </div>
           </li>
           <li class="step" data-step="2">
             <span class="num">03</span>
             <div>
-              <span class="step-tag">El día antes</span>
-              <h3>Recuerda</h3>
-              <p>El cliente recibe un recordatorio. Si no puede, cambia la hora él mismo desde el enlace, sin tener que llamarte.</p>
+              <span class="step-tag">El formulario · 2</span>
+              <h3>Cuenta cómo es y manda fotos</h3>
+              <p>Qué quiere cambiar, los metros y fotos de cómo está ahora. Llegas a la visita sabiendo lo que hay, y no pierdes la mañana en obras que no son para ti.</p>
             </div>
           </li>
           <li class="step" data-step="3">
             <span class="num">04</span>
             <div>
-              <span class="step-tag">El presupuesto</span>
-              <h3>Persigue</h3>
-              <p>Si mandas el presupuesto y no contesta, el sistema le vuelve a escribir unos días después, y otra vez si hace falta. Te avisa en cuanto responde.</p>
+              <span class="step-tag">El formulario · 3</span>
+              <h3>Elige día y hora</h3>
+              <p>Solo ve los huecos que tú dejas libres. Si le da igual, marca «soy flexible» y tú le propones.</p>
+            </div>
+          </li>
+          <li class="step" data-step="4">
+            <span class="num">05</span>
+            <div>
+              <span class="step-tag">El formulario · 4</span>
+              <h3>Deja sus datos</h3>
+              <p>Nombre, teléfono, zona de la obra y si prefiere que le avisen por WhatsApp o por SMS. Un minuto en total.</p>
+            </div>
+          </li>
+          <li class="step" data-step="5">
+            <span class="num">06</span>
+            <div>
+              <span class="step-tag">Tu panel</span>
+              <h3>Te llega a ti</h3>
+              <p>La solicitud entra en tu panel con todo: la obra, los metros, las fotos y la hora. La confirmas con un toque y al cliente le llega el aviso.</p>
+            </div>
+          </li>
+          <li class="step" data-step="6">
+            <span class="num">07</span>
+            <div>
+              <span class="step-tag">Después</span>
+              <h3>Recuerda y persigue</h3>
+              <p>El día antes, recordatorio de la visita. Y si mandas el presupuesto y no contesta, el sistema le vuelve a escribir. Te avisa en cuanto responde.</p>
             </div>
           </li>
         </ol>
@@ -232,41 +318,18 @@
     <section class="section wrap" id="funciones">
       <div class="head" data-reveal>
         <span class="eyebrow">Qué incluye</span>
-        <h2>Todo lo que entra, en un solo sitio.</h2>
+        <h2>Todos los caminos llevan a tu formulario.</h2>
+        <p>Da igual por dónde llegue el cliente: acaba reservando la visita, y tú lo ves todo en un solo sitio.</p>
       </div>
 
       <div class="feature" data-reveal>
         <div class="f-copy">
-          <span class="eyebrow soft">Tu panel</span>
-          <h3>Cada solicitud, con lo que necesitas saber.</h3>
-          <p>Quién llamó, qué obra es, las fotos que te mandó, cuándo es la visita y en qué punto está el presupuesto. Desde el móvil o desde el ordenador.</p>
-          <ul class="ticks">
-            <li>Resumen escrito de cada llamada</li>
-            <li>Aviso de a quién devolver la llamada</li>
-            <li>El estado de cada presupuesto</li>
-          </ul>
-        </div>
-        <div class="f-visual">
-          <div class="window">
-            <div class="win-bar"><i></i><i></i><i></i><span>Solicitudes</span><span class="demo-tag">Datos de ejemplo</span></div>
-            <ul class="rows">
-              <li><span class="who"><b>Laura M.</b><small>Reforma de baño</small></span><span class="what">Visita jue 8 · 10:00</span><span class="st ok">Reservada</span></li>
-              <li><span class="who"><b>Carlos R.</b><small>Cocina</small></span><span class="what">Pide que le llames hoy</span><span class="st hot">Urgente</span></li>
-              <li><span class="who"><b>Marta S.</b><small>Reforma integral</small></span><span class="what">Presupuesto enviado</span><span class="st warn">Seguimiento 2</span></li>
-              <li><span class="who"><b>Javier P.</b><small>Baño</small></span><span class="what">3 fotos recibidas</span><span class="st new">Nueva</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature flip" data-reveal>
-        <div class="f-copy">
           <span class="eyebrow soft">Google y tu web</span>
-          <h3>Que te reserven sin tener que llamarte.</h3>
-          <p>Ponemos el enlace de reservar visita en tu ficha de Google y un botón en tu web. Quien te encuentra elige día y hora en un minuto, también de noche.</p>
+          <h3>El botón de «Reservar visita», donde ya te buscan.</h3>
+          <p>Ponemos el enlace en tu ficha de Google y un botón en tu web. Y si el cliente cierra el formulario, vuelve a tu web, no a la lista de Google con tu competencia.</p>
           <ul class="ticks">
-            <li>Formulario de reserva con tu marca</li>
-            <li>Tus servicios, tus horarios y tus días libres</li>
+            <li>Formulario con tu nombre, tu logo y tus servicios</li>
+            <li>Tus horarios y tus días libres</li>
             <li>Lo montamos nosotros</li>
           </ul>
         </div>
@@ -285,7 +348,61 @@
         </div>
       </div>
 
+      <div class="feature flip" data-reveal>
+        <div class="f-copy">
+          <span class="eyebrow soft">Si te llaman en obra</span>
+          <h3>La llamada que no coges también acaba en el formulario.</h3>
+          <p>Con el asistente de voz, si no coges, contesta con el nombre de tu empresa, pregunta qué obra es y le manda al cliente el enlace para reservar. Tú ves el resumen de la llamada en el panel.</p>
+          <ul class="ticks">
+            <li>Sigues con tu número de siempre</li>
+            <li>Contesta 24 horas, también en fin de semana</li>
+            <li>Se contrata aparte</li>
+          </ul>
+        </div>
+        <div class="f-visual center">
+          <div class="phone small" aria-hidden="true">
+            <div class="phone-notch"></div>
+            <div class="screen call is-active">
+              <div class="call-top">
+                <small>Asistente de Reformas García</small>
+                <strong>En llamada · <span class="timer">00:42</span></strong>
+              </div>
+              <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="transcript">
+                <p class="t-in"><b>Cliente</b>Hola, quería presupuesto para reformar un baño.</p>
+                <p class="t-out"><b>Asistente</b>Claro. Te mando ahora un enlace para que elijas día para la visita y nos pases unas fotos.</p>
+              </div>
+              <div class="tags"><span>Enlace enviado por WhatsApp</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="feature" data-reveal>
+        <div class="f-copy">
+          <span class="eyebrow soft">Tu panel</span>
+          <h3>Cada solicitud, con lo que necesitas saber.</h3>
+          <p>Quién es, qué obra quiere, las fotos, cuándo es la visita y en qué punto está el presupuesto. Desde el móvil o desde el ordenador.</p>
+          <ul class="ticks">
+            <li>Confirmas o mueves la visita con un toque</li>
+            <li>Aviso de a quién devolver la llamada</li>
+            <li>El estado de cada presupuesto</li>
+          </ul>
+        </div>
+        <div class="f-visual">
+          <div class="window">
+            <div class="win-bar"><i></i><i></i><i></i><span>Solicitudes</span><span class="demo-tag">Datos de ejemplo</span></div>
+            <ul class="rows">
+              <li><span class="who"><b>Laura M.</b><small>Reforma de baño · 3 fotos</small></span><span class="what">Visita jue 8 · 10:00</span><span class="st ok">Confirmada</span></li>
+              <li><span class="who"><b>Javier P.</b><small>Cocina · 5 fotos</small></span><span class="what">Pide vie 9 · 17:00</span><span class="st new">Por confirmar</span></li>
+              <li><span class="who"><b>Carlos R.</b><small>Llamada · baño</small></span><span class="what">Pide que le llames hoy</span><span class="st hot">Urgente</span></li>
+              <li><span class="who"><b>Marta S.</b><small>Reforma integral</small></span><span class="what">Presupuesto enviado</span><span class="st warn">Seguimiento 2</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature flip" data-reveal>
         <div class="f-copy">
           <span class="eyebrow soft">¿Sin web?</span>
           <h3>Si no tienes web, te hacemos una.</h3>
@@ -293,7 +410,7 @@
           <ul class="ticks">
             <li>Con tu nombre y tus fotos</li>
             <li>Pensada para verse en el móvil</li>
-            <li>Con el botón de reservar ya puesto</li>
+            <li>Con el formulario ya puesto</li>
           </ul>
         </div>
         <div class="f-visual">
@@ -316,9 +433,9 @@
         <div class="head left" data-reveal>
           <span class="eyebrow">Historial</span>
           <h2>Cada cliente, con todo lo que pasó.</h2>
-          <p>La llamada, el enlace, la visita, el presupuesto y cada mensaje quedan en su ficha. Nada se pierde entre el WhatsApp, la libreta y la memoria.</p>
+          <p>La reserva, las fotos, la visita, el presupuesto y cada mensaje quedan en su ficha. Nada se pierde entre el WhatsApp, la libreta y la memoria.</p>
           <div class="mini-cards">
-            <div><strong>Llamadas</strong><span>Un resumen escrito de cada una, con la urgencia.</span></div>
+            <div><strong>Reservas</strong><span>Con la obra, los metros y las fotos antes de ir.</span></div>
             <div><strong>Mensajes</strong><span>Por WhatsApp o por SMS, según prefiera el cliente.</span></div>
             <div><strong>Presupuestos</strong><span>Sabes cuáles siguen vivos y cuáles se enfriaron.</span></div>
           </div>
@@ -326,9 +443,8 @@
         <div class="timeline-card" data-reveal>
           <div class="tl-head"><div><strong>Laura M.</strong><small>Reforma de baño · Chamberí</small></div><span class="demo-tag">Datos de ejemplo</span></div>
           <ol class="timeline">
-            <li><time>Lun 5 · 11:42</time><b>Llamada atendida por el asistente</b><small>1:48 · Quiere reformar el baño. Sin prisa.</small></li>
-            <li><time>Lun 5 · 11:43</time><b>Enlace de reserva enviado por WhatsApp</b></li>
-            <li class="ok"><time>Lun 5 · 11:51</time><b>Visita reservada</b><small>Jueves 8, 10:00</small></li>
+            <li><time>Lun 5 · 22:14</time><b>Solicitud desde tu ficha de Google</b><small>Reforma de baño · 6 m² · 3 fotos</small></li>
+            <li class="ok"><time>Mar 6 · 08:05</time><b>Visita confirmada por ti</b><small>Jueves 8, 10:00 · aviso por WhatsApp</small></li>
             <li><time>Mié 7 · 10:00</time><b>Recordatorio enviado</b><small>Confirmada</small></li>
             <li class="ok"><time>Jue 8 · 10:00</time><b>Visita hecha</b></li>
             <li><time>Lun 12</time><b>Presupuesto enviado</b><small>7.850 €</small></li>
@@ -344,18 +460,18 @@
       <div class="head" data-reveal>
         <span class="eyebrow">Comparativa</span>
         <h2>Lo que hace cada opción.</h2>
-        <p>Cómo se atienden hoy los clientes de una empresa de reformas cuando el dueño está en obra.</p>
+        <p>Cómo le llegan hoy los clientes a una empresa de reformas cuando el dueño está en obra.</p>
       </div>
       <div class="table-wrap" data-reveal>
         <table class="compare">
-          <caption class="sr">Comparativa entre el buzón de voz, un familiar o una secretaria, un contestador con IA y Atiende</caption>
+          <caption class="sr">Comparativa entre Atiende, un contestador con IA, un familiar o una secretaria y el buzón de voz</caption>
           <thead>
             <tr><th scope="col"></th><th scope="col" class="us">Atiende</th><th scope="col">Contestador con IA</th><th scope="col">Un familiar o una secretaria</th><th scope="col">Buzón de voz</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">Coge la llamada cuando tú no puedes</th><td class="us y">Sí</td><td class="y">Sí</td><td>En su horario</td><td>Solo graba</td></tr>
-            <tr><th scope="row">Contesta de noche y en fin de semana</th><td class="us y">Sí</td><td class="y">Sí</td><td class="n">No</td><td>Solo graba</td></tr>
-            <tr><th scope="row">Deja la visita reservada</th><td class="us y">Sí</td><td>Según el servicio</td><td class="y">Sí</td><td class="n">No</td></tr>
+            <tr><th scope="row">El cliente reserva sin llamar, desde Google o tu web</th><td class="us y">Sí</td><td class="n">No</td><td class="n">No</td><td class="n">No</td></tr>
+            <tr><th scope="row">Te llegan fotos y medidas antes de la visita</th><td class="us y">Sí</td><td>Según el servicio</td><td>A veces</td><td class="n">No</td></tr>
+            <tr><th scope="row">Atiende la llamada cuando tú no puedes</th><td class="us y">Con el asistente</td><td class="y">Sí</td><td>En su horario</td><td>Solo graba</td></tr>
             <tr><th scope="row">Recuerda la visita al cliente</th><td class="us y">Sí</td><td>Según el servicio</td><td>Si se acuerda</td><td class="n">No</td></tr>
             <tr><th scope="row">Persigue el presupuesto</th><td class="us y">Sí</td><td>Según el plan</td><td>Si se acuerda</td><td class="n">No</td></tr>
             <tr><th scope="row">Lo deja todo apuntado en un panel</th><td class="us y">Sí</td><td>Según el servicio</td><td>En una libreta</td><td class="n">No</td></tr>
@@ -374,19 +490,20 @@
         <p>Pagas lo mismo tengas 5 clientes o 50. Los primeros 30 días son gratis.</p>
       </div>
       <div class="plans">
-        <article class="plan" data-reveal>
+        <article class="plan hl" data-reveal>
+          <span class="badge">Empieza aquí</span>
           <h3>Standard</h3>
           <p class="for">Para que te reserven sin llamarte.</p>
           <p class="price"><b>199 €</b><span>/mes + IVA</span></p>
           <ul class="ticks">
-            <li>Formulario de reserva con tu marca</li>
+            <li>Formulario de reserva con tu marca, con fotos y medidas</li>
             <li>Enlace de reservar en tu ficha de Google</li>
             <li>Botón en tu web, o mini-web si no tienes</li>
             <li>Recordatorio de la visita al cliente</li>
             <li>Seguimiento automático del presupuesto</li>
             <li>Panel con todas las solicitudes</li>
           </ul>
-          <a class="btn btn-ghost full" href="#probar">Quiero probarlo</a>
+          <a class="btn full" href="#probar">Quiero probarlo</a>
         </article>
         <article class="plan" data-reveal>
           <h3>Premium</h3>
@@ -396,27 +513,27 @@
             <li>Todo lo de Standard</li>
             <li>Conversación por WhatsApp y por SMS</li>
             <li>Tu propio número para los mensajes</li>
-            <li>Fotos de la obra antes de la visita</li>
+            <li>Fotos también por WhatsApp y SMS</li>
           </ul>
           <a class="btn btn-ghost full" href="#probar">Quiero probarlo</a>
         </article>
-        <article class="plan hl" data-reveal>
-          <span class="badge">Se contrata aparte</span>
+        <article class="plan" data-reveal>
+          <span class="badge soft">Se contrata aparte</span>
           <h3>Asistente de voz</h3>
           <p class="for">Para las llamadas que no coges.</p>
           <p class="price"><b>399 €</b><span>/mes + IVA</span></p>
           <ul class="ticks">
             <li>Contesta 24 horas, todos los días</li>
-            <li>Manda el enlace de reserva por WhatsApp o SMS</li>
+            <li>Manda el enlace del formulario por WhatsApp o SMS</li>
             <li>Te avisa de a quién devolver la llamada</li>
             <li>Resumen de cada llamada en el panel</li>
             <li>Hasta 300 llamadas al mes</li>
           </ul>
-          <a class="btn full" href="#probar">Quiero probarlo</a>
+          <a class="btn btn-ghost full" href="#probar">Quiero probarlo</a>
         </article>
       </div>
       <div class="plans-foot" data-reveal>
-        <p><strong>Para no perder ni una llamada:</strong> Standard + Asistente de voz, 598 €/mes + IVA.</p>
+        <p><strong>Para no perder tampoco las llamadas:</strong> Standard + Asistente de voz, 598 €/mes + IVA.</p>
         <p>¿Varias marcas o un equipo grande? Plan Enterprise, a medida: <a href="#probar">hablamos</a>.</p>
         <ul class="conds">
           <li>30 días gratis</li><li>Sin permanencia</li><li>Pago anual: hasta un 20% de descuento</li><li>Precios sin IVA</li>
@@ -432,16 +549,16 @@
       </div>
       <div class="faq" data-reveal>
         <details>
-          <summary><span class="qn">01</span>¿Tengo que cambiar de número?</summary>
-          <p>No. Sigues con tu número de siempre. Solo activas un desvío para las llamadas que no coges, y lo dejamos hecho contigo.</p>
+          <summary><span class="qn">01</span>¿Qué ve el cliente al reservar?</summary>
+          <p>Un formulario con tu nombre y tu logo: elige la obra, cuenta cómo es, sube fotos, elige día y hora y deja su teléfono. Tarda un minuto y no tiene que registrarse. Tú confirmas la visita desde el panel.</p>
         </details>
         <details>
-          <summary><span class="qn">02</span>¿Mis clientes van a hablar con una máquina?</summary>
-          <p>Solo cuando tú no puedes coger. El asistente se presenta con el nombre de tu empresa, pregunta qué necesitan y les manda el enlace para reservar. Si prefieren que les llames tú, te deja el aviso con un resumen.</p>
-        </details>
-        <details>
-          <summary><span class="qn">03</span>¿Y si ya tengo web?</summary>
+          <summary><span class="qn">02</span>¿Y si ya tengo web?</summary>
           <p>Añadimos un botón de reservar o cambiamos el enlace del botón que ya tienes. Si no tienes web o está abandonada, te hacemos una sencilla, incluida en el plan Standard.</p>
+        </details>
+        <details>
+          <summary><span class="qn">03</span>¿Tengo que cambiar de número?</summary>
+          <p>No. Sigues con tu número de siempre. Si contratas el asistente de voz, solo activas un desvío para las llamadas que no coges, y lo dejamos hecho contigo.</p>
         </details>
         <details>
           <summary><span class="qn">04</span>¿Tengo que saber de tecnología?</summary>
@@ -471,7 +588,7 @@
           <p>Rellena esto y se abre WhatsApp con el mensaje ya escrito. Lo envías y te llamamos para montarlo contigo.</p>
           <ol class="after">
             <li><b>Te llamamos</b><span>Vemos cómo te llegan hoy los clientes.</span></li>
-            <li><b>Lo montamos contigo</b><span>El desvío, el enlace de Google y tu web.</span></li>
+            <li><b>Lo montamos contigo</b><span>Tu formulario, el enlace de Google y tu web.</span></li>
             <li><b>30 días gratis</b><span>Si no te sirve, lo quitas.</span></li>
           </ol>
         </div>
@@ -507,7 +624,7 @@
 
   <footer class="footer wrap">
     <div>
-      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>Atiende</a>
+      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2zM5 9v10h14V9zm5.6 8.2-3-3 1.4-1.4 1.6 1.6 4.4-4.4 1.4 1.4z"/></svg></span>Atiende</a>
       <p>Para empresas de reformas. Madrid.</p>
     </div>
     <nav aria-label="Pie de página">
