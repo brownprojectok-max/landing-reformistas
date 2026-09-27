@@ -171,3 +171,45 @@ if (BOOKING_URL) {
     bookMsg.textContent = 'Todavía no está configurado el enlace del calendario.';
   });
 }
+
+// ---------- portada: el nombre de su empresa en todos los ejemplos ----------
+// Solo cambia el texto en su pantalla; no se envía nada.
+const DEMO = 'Reformas García';
+const DEMO_SLUG = 'reformasgarcia';
+const STOP = new Set(['de', 'del', 'la', 'las', 'el', 'los', 'y', 'e']);
+const initials = (name) => {
+  const words = name.split(' ').filter((w) => w && !STOP.has(w.toLowerCase()));
+  if (!words.length) return 'RG';
+  const letters = words.length === 1 ? words[0].slice(0, 2) : words[0][0] + words[1][0];
+  return letters.toUpperCase();
+};
+const slug = (name) => name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+// Todos los textos de ejemplo con el nombre (incluidas las copias de las pantallas), recogidos una vez.
+const nameNodes = [];
+const walker = document.createTreeWalker(document.getElementById('contenido'), NodeFilter.SHOW_TEXT);
+for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+  if (n.nodeValue.includes(DEMO) || n.nodeValue.includes(DEMO_SLUG)) nameNodes.push({ node: n, tpl: n.nodeValue });
+}
+const avatars = [...document.querySelectorAll('.avatar')].filter((a) => a.textContent.trim() === 'RG');
+
+const setBusiness = (raw) => {
+  const name = raw.trim().replace(/\s+/g, ' ') || DEMO;
+  const nameSlug = slug(name) || DEMO_SLUG;
+  for (const { node, tpl } of nameNodes) node.nodeValue = tpl.split(DEMO).join(name).split(DEMO_SLUG).join(nameSlug);
+  const ini = name === DEMO ? 'RG' : initials(name);
+  avatars.forEach((a) => { a.textContent = ini; });
+};
+
+const tryForm = document.getElementById('tryForm');
+const tryName = document.getElementById('tryName');
+tryName.addEventListener('input', () => setBusiness(tryName.value));
+tryForm.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  tryName.blur();
+  // En el móvil el teléfono de ejemplo queda debajo: lo acercamos para que vea su formulario.
+  const r = heroPhone.getBoundingClientRect();
+  if (r.top > window.innerHeight * 0.6 || r.bottom < 0) {
+    heroPhone.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+  }
+});

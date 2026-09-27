@@ -194,6 +194,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero { grid-template-columns: 1fr; gap: 40px; min-height: auto; padding-top: 108px; }
 }
 
+/* ---------- portada: pruébalo con tu nombre ---------- */
+.try {
+  margin: 26px 0 0; padding: 14px 16px 12px; max-width: 30em;
+  background: var(--glass-strong); border: 1px solid var(--glass-border); border-radius: 18px; box-shadow: var(--shadow-sm);
+}
+.try label { display: block; font-weight: 700; font-size: 15px; color: var(--ink); margin-bottom: 9px; }
+.try-row { display: flex; align-items: center; gap: 10px; padding: 0 14px; min-height: 50px; border-radius: 13px; border: 1.5px solid var(--accent-border); background: #fff; }
+.try-row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.try-row svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round; }
+.try-row input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 17px; color: var(--ink); padding: 12px 0; }
+.try small { display: block; margin-top: 8px; font-size: 12.5px; color: var(--faint); }
+.try + .cta-row { margin-top: 20px; }
+
 /* ---------- teléfono (maqueta) ---------- */
 .phone {
   --pw: 300px;
@@ -265,6 +278,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .fm-brand { display: flex; align-items: center; justify-content: center; gap: 0.45em; margin-top: 0.75em; font-size: 0.72em; font-weight: 650; color: var(--ink-2); }
 .fm-brand .avatar { width: 1.9em; height: 1.9em; font-size: 0.75em; }
 .fm-title { text-align: center; font-size: 1.12em; font-weight: 780; letter-spacing: -0.015em; margin: 0.35em 0 0.75em; line-height: 1.2; }
+.fm-sub { text-align: center; font-size: 0.68em; color: var(--muted); margin: -0.55em 0 0.8em; }
 .screen .opt { font: inherit; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .fm-foot { margin-top: 0.55em; text-align: center; font-size: 0.6em; color: var(--faint); }
 .fm-foot .marca { color: var(--ink-2); }
@@ -375,6 +389,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .req-actions .ghost { text-align: center; font-size: 0.8em; font-weight: 650; padding: 0.65em; border-radius: 0.8em; border: 1px solid var(--line-2); background: #fff; }
 .req-note { display: block; text-align: center; font-size: 0.68em; color: var(--muted); margin-top: 0.6em; }
 .chat .notify { margin-top: 0.3em; }
+.lc-ico.star { background: #fff3d1; color: #e39a1b; font-size: 1em; }
+.review { background: #fff; border: 1px solid var(--line); border-radius: 0.9em; padding: 0.6em 0.75em; }
+.rv-top { display: flex; align-items: center; gap: 0.5em; margin-bottom: 0.35em; }
+.rv-top b { display: block; font-size: 0.8em; }
+.rv-top .stars { display: block; font-size: 0.72em; }
+.avatar.alt { background: linear-gradient(145deg, #5b6b82, #2b3647); width: 2em; height: 2em; font-size: 0.7em; }
+.review p { font-size: 0.76em; color: var(--ink-2); line-height: 1.35; }
 
 /* llamada */
 .call { background: linear-gradient(180deg, #16202d, #0f1722); color: #fff; }
