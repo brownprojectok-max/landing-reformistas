@@ -235,7 +235,6 @@ if (app) {
   // Estado de partida de la historia: la solicitud de Javier aún no ha llegado.
   const reset = () => {
     arrival.classList.add('is-hidden');
-    arrival.classList.remove('arrive');
     arrivalSt.textContent = 'Por confirmar';
     arrivalSt.className = 'st new';
     badge.textContent = '2';
@@ -246,7 +245,6 @@ if (app) {
     { wait: 1500, fn: () => { reset(); show('solicitudes'); } },
     { wait: 3000, fn: () => {
       arrival.classList.remove('is-hidden');
-      arrival.classList.add('arrive');
       badge.textContent = '3';
       say('Nueva solicitud · Javier P. · cocina · 5 fotos');
     } },
