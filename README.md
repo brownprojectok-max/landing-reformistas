@@ -6,6 +6,6 @@ Página estática (HTML, CSS y JavaScript, sin compilar) que explica la oferta a
 - **Llamada:** el botón final abre el calendario para reservar una llamada de 15 minutos. El enlace va en `BOOKING_URL`, arriba de `main.js`.
 - **Sin indexar** (`noindex`) hasta tener aviso legal y política de privacidad.
 - **Despliegue:** Vercel, importando este repositorio. Cada push a `main` publica.
-- **Publicar:** el Señor ejecuta `publicar-landing.bat` (une la rama de trabajo con `main` y la sube).
+- **Publicar:** el Señor ejecuta `publicar-landing.bat` (sube la rama de trabajo como `main`, sin cambiar de rama).
 
 Ficha de la idea: `JARVIS/wiki/proyectos/grieta-marketplaces-oficios.md`.
