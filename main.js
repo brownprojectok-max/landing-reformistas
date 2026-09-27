@@ -241,20 +241,21 @@ if (app) {
     calNew.classList.add('pend');
   };
 
+  // Cuatro pantallas de 1,5 s (6 s en total); la llegada y la confirmación pasan dentro de la suya.
+  const arrive = () => {
+    arrival.classList.remove('is-hidden');
+    badge.textContent = '3';
+    say('Nueva solicitud · Javier P. · cocina · 5 fotos');
+  };
+  const confirmVisit = () => {
+    calNew.classList.remove('pend');
+    arrivalSt.textContent = 'Confirmada';
+    arrivalSt.className = 'st ok';
+    say('Visita confirmada · a Javier le llega el aviso por WhatsApp');
+  };
   const story = [
-    { wait: 500, fn: () => { reset(); show('solicitudes'); } },
-    { wait: 900, fn: () => {
-      arrival.classList.remove('is-hidden');
-      badge.textContent = '3';
-      say('Nueva solicitud · Javier P. · cocina · 5 fotos');
-    } },
-    { wait: 600, fn: () => show('calendario') },
-    { wait: 1000, fn: () => {
-      calNew.classList.remove('pend');
-      arrivalSt.textContent = 'Confirmada';
-      arrivalSt.className = 'st ok';
-      say('Visita confirmada · a Javier le llega el aviso por WhatsApp');
-    } },
+    { wait: 1500, fn: () => { reset(); show('solicitudes'); after(450, arrive); } },
+    { wait: 1500, fn: () => { show('calendario'); after(550, confirmVisit); } },
     { wait: 1500, fn: () => show('cliente') },
     { wait: 1500, fn: () => show('resumen') },
   ];
